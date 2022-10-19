@@ -12,30 +12,6 @@
 ## DependsOn: LibLazyCrafting>=2996 LibAddonMenu-2.0 LibStub
 ## OptionalDependsOn: pChat LibFeedback LibCustomMenu LibPrice
 
-; Libraries
-
-; LibAddonMenu
-libs\LibAddonMenu-2.0\LibAddonMenu-2.0.lua
-libs\LibAddonMenu-2.0\controls\panel.lua
-libs\LibAddonMenu-2.0\controls\submenu.lua
-libs\LibAddonMenu-2.0\controls\button.lua
-libs\LibAddonMenu-2.0\controls\checkbox.lua
-libs\LibAddonMenu-2.0\controls\colorpicker.lua
-libs\LibAddonMenu-2.0\controls\custom.lua
-libs\LibAddonMenu-2.0\controls\description.lua
-libs\LibAddonMenu-2.0\controls\dropdown.lua
-libs\LibAddonMenu-2.0\controls\editbox.lua
-libs\LibAddonMenu-2.0\controls\header.lua
-libs\LibAddonMenu-2.0\controls\slider.lua
-libs\LibAddonMenu-2.0\controls\texture.lua
-libs\LibAddonMenu-2.0\controls\divider.lua
-
-libs\LibPrice\LibPrice.lua
-libs\LibPrice\LibPrice_Internal.lua
-
-; Feedback library
-libs\LibFeedback\feedback.lua
-
 ; Localization files - Default (en) first
 Lang/en.lua
 Lang/$(language).lua
