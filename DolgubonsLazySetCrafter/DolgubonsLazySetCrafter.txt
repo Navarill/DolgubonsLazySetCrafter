@@ -14,9 +14,6 @@
 
 ; Libraries
 
-; LibCustomTitles
-Libs\LibCustomTitles\LibCustomTitles.lua
-
 ; LibAddonMenu
 libs\LibAddonMenu-2.0\LibAddonMenu-2.0.lua
 libs\LibAddonMenu-2.0\controls\panel.lua
