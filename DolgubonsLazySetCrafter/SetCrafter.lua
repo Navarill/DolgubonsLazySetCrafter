@@ -108,8 +108,9 @@ function DolgubonSetCrafter:Initialize()
 			DolgubonSetCrafter.savedvars.notifyWiped = false
 		end end)]]
 
-	LLC, version = LibStub:GetLibrary("LibLazyCrafting")
-	if version <2.96 then
+	local LLCversion
+	LLCversion = LibLazyCrafting.version
+	if LLCversion <2.96 then
 		out("Your version of LibLazyCrafting is incompatible with this version of Dolgubon's Lazy Set Crafter. Please update the library.")
 		out = function() end
 	end
@@ -122,7 +123,7 @@ function DolgubonSetCrafter:Initialize()
 	DolgubonSetCrafter.initializeFunctions.setupUI()
 	
 	--DolgubonSetCrafter.initializeFeedbackWindow()
-	local LibFeedback = LibStub:GetLibrary("LibFeedback")
+	local LibFeedback = LibFeedback
 	local button, window = LibFeedback:initializeFeedbackWindow(DolgubonSetCrafter, "Dolgubon's Lazy Set Crafter",DolgubonSetCrafterWindow, "@Dolgubon", 
 		{TOPLEFT , DolgubonSetCrafterWindow , TOPLEFT , 10, 10}, 
 		{0,5000,50000, "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7CZ3LW6E66NAU"}, 
