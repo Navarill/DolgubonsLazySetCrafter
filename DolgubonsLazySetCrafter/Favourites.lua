@@ -143,7 +143,7 @@ local function loadSelectionFavourite(selectedFavourite)
 	DolgubonSetCrafter.armourTypes[selectedFavourite.weight.id]:toggleOn()
 end
 
-local function loadQueueFavourite(selectedFavourite, useCurrentLevel)
+local function loadQueueFavourite(selectedFavourite, useCurrentLevel, useCurrentQuality, useCurrentSet, useCurrentStyle)
 	if useCurrentLevel then
 		d("LOADING Set Crafter selection: '"..selectedFavourite.name.."' with currently selected level")
 	else
@@ -176,13 +176,13 @@ local function loadQueueFavourite(selectedFavourite, useCurrentLevel)
 			copy["Link"] = DolgubonSetCrafter.LazyCrafter.getItemLinkFromParticulars( returnedTable.setIndex,returnedTable.trait ,returnedTable.pattern ,returnedTable.station ,level, 
 			isCP,returnedTable.quality,returnedTable.style, returnedTable.potencyItemId , returnedTable.essenceItemId, returnedTable.aspectItemId)
 						local enchantLevel = LibLazyCrafting.closestGlyphLevel(isCP, level)
-			-- 		enchantRequestTable = LazyCrafter:CraftEnchantingGlyphByAttributes(isCP, enchantLevel, 
-			-- copy["Enchant"][1], copy["EnchantQuality"] , 
-			-- DolgubonSetCrafter:GetAutocraft(), requestTableCopy["Reference"], returnedTable)
+					enchantRequestTable = DolgubonSetCrafter.LazyCrafter:CraftEnchantingGlyphByAttributes(isCP, enchantLevel, 
+			copy["Enchant"][1], copy["EnchantQuality"] , 
+			DolgubonSetCrafter:GetAutocraft(), returnedTable["Reference"], returnedTable)
 
-			-- 	r[12] = enchantRequestTable.potencyItemID
-			-- 	r[13] = enchantRequestTable.essenceItemID
-			-- 	r[14] = enchantRequestTable.aspectItemID
+				r[12] = enchantRequestTable.potencyItemID
+				r[13] = enchantRequestTable.essenceItemID
+				r[14] = enchantRequestTable.aspectItemID
 
 		else
 			local r = copy["CraftRequestTable"]
