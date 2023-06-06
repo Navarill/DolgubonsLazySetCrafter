@@ -108,9 +108,8 @@ function DolgubonSetCrafter:Initialize()
 			DolgubonSetCrafter.savedvars.notifyWiped = false
 		end end)]]
 
-	local LLCversion
-	LLCversion = LibLazyCrafting.version
-	if LLCversion <2.96 then
+	LLC, version = LibLazyCrafting, LibLazyCrafting.version
+	if version <2.96 then
 		out("Your version of LibLazyCrafting is incompatible with this version of Dolgubon's Lazy Set Crafter. Please update the library.")
 		out = function() end
 	end
@@ -130,7 +129,7 @@ function DolgubonSetCrafter:Initialize()
 		"If you found a bug, have a request or a suggestion, or wish to donate, you can send me a mail here.")
 	window:SetHidden(true)
 
-	local currentAPIVersionOfAddon = 101037
+	local currentAPIVersionOfAddon = 101038
 
 	if GetAPIVersion() > currentAPIVersionOfAddon and GetWorldName()~="PTS" then 
 		d("Update your addons!") 
