@@ -15,10 +15,10 @@
 ; Libraries
 
 ; LibCustomTitles
-Libs\LibCustomTitles\LibCustomTitles.lua
+; Libs\LibCustomTitles\LibCustomTitles.lua
 
-libs\LibPrice\LibPrice.lua
-libs\LibPrice\LibPrice_Internal.lua
+; libs\LibPrice\LibPrice.lua
+; libs\LibPrice\LibPrice_Internal.lua
 
 ; Feedback library
 libs\LibFeedback\feedback.lua
