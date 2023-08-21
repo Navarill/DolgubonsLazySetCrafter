@@ -9,7 +9,7 @@
 ## Author: Dolgubon
 ## Version: 2.8.4
 ## SavedVariables: dolgubonslazysetcraftersavedvars
-## DependsOn: LibLazyCrafting>=2996 LibAddonMenu-2.0 LibStub
+## DependsOn: LibLazyCrafting>=2996 LibAddonMenu-2.0
 ## OptionalDependsOn: pChat LibFeedback LibCustomMenu LibPrice
 
 ; Libraries
