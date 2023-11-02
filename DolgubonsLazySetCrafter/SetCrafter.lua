@@ -125,11 +125,11 @@ function DolgubonSetCrafter:Initialize()
 	local LibFeedback = LibFeedback
 	local button, window = LibFeedback:initializeFeedbackWindow(DolgubonSetCrafter, "Dolgubon's Lazy Set Crafter",DolgubonSetCrafterWindow, "@Dolgubon", 
 		{TOPLEFT , DolgubonSetCrafterWindow , TOPLEFT , 10, 10}, 
-		{0,5000,50000, "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7CZ3LW6E66NAU"}, 
+		{0,50000,250000, "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7CZ3LW6E66NAU"}, 
 		"If you found a bug, have a request or a suggestion, or wish to donate, you can send me a mail here.")
 	window:SetHidden(true)
 
-	local currentAPIVersionOfAddon = 101039
+	local currentAPIVersionOfAddon = 101040
 
 	if GetAPIVersion() > currentAPIVersionOfAddon and GetWorldName()~="PTS" then 
 		d("Update your addons!") 
