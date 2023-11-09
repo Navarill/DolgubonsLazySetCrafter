@@ -359,6 +359,10 @@ function DolgubonSetCrafter.onWindowResizeStop(window)
 	DolgubonSetCrafter.savedvars.height = DolgubonSetCrafterWindow:GetHeight()
 end
 
+-- /esoui/art/lfg/lfg_indexicon_homeshow_up.dds
+-- /esoui/art/lfg/lfg_indexicon_homeshow_over.dds
+-- /esoui/art/lfg/lfg_indexicon_homeshow_down.dds
+
 --esoui/art/journal/gamepad/gp_journalcheck.dds
 --esoui/art/buttons/decline_up.dds
 --esoui/art/buttons/accept_up.dds
