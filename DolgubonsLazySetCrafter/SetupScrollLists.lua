@@ -147,6 +147,7 @@ local function updateCost()
 
 		cost = cost + price * v["Amount"]
 	end 
+	cost = zo_strformat(SI_NUMBER_FORMAT, ZO_AbbreviateNumber(cost, NUMBER_ABBREVIATION_PRECISION_HUNDREDTHS, USE_LOWERCASE_NUMBER_SUFFIXES))
 	DolgubonSetCrafterWindowRightCost:SetText("Total Cost: "..cost.." |t20:20:esoui/art/currency/currency_gold_64.dds|t")
 end
 

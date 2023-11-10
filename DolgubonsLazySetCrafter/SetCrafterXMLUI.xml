@@ -152,6 +152,25 @@ Created by Dolgubon (Joseph Heinzle)
 		        			<Anchor point="TOPLEFT" relativeTo="$(grandparent)Title" relativePoint="BOTTOMLEFT" offsetX="0" offsetY="5" />
 		        			<Anchor point="TOPRIGHT" relativeTo="$(grandparent)Title" relativePoint="BOTTOMRIGHT" offsetX="0" offsetY="5" />
 		    			</Label>
+    					<Button name="$(grandparent)CraftHousePort" alpha="1" clickSound="Default_Click" text="Crafting House" topmost="true" inherits="ZO_DefaultButton">
+		     				<Textures 
+								normal		="/esoui/art/lfg/lfg_indexicon_homeshow_up.dds"
+								pressed		="/esoui/art/lfg/lfg_indexicon_homeshow_down.dds"
+								mouseOver	="/esoui/art/lfg/lfg_indexicon_homeshow_over.dds"
+							/>
+		     				<Anchor point="LEFT" relativeTo="$(grandparent)Title" relativePoint="LEFT"  offsetX="50" offsetY="15"/>
+		      				<Dimensions x="65" y="55" />
+							<OnClicked>
+								DolgubonSetCrafter.portToCraftingHouse()
+							</OnClicked>
+							<OnMouseEnter>
+								InitializeTooltip(InformationTooltip, self, TOP, 0, 0)
+								SetTooltipText(InformationTooltip,"Port to a publicly open crafting house")
+							</OnMouseEnter>
+							<OnMouseExit>
+								ClearTooltip(InformationTooltip)
+							</OnMouseExit>
+				    	</Button>
 		    			<!--  -->
 		    			<!-- Creating XML controls for Input/-->
 		    			<!-- Creating the holder for the pieces Input/-->
