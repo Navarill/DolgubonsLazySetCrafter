@@ -10,7 +10,8 @@
 -- A good portion are setup functions, called by the initialization function
 -- 
 
-
+-- GetRecipeInfo(number recipeListIndex, number recipeIndex)
+--  GetRecipeListInfo(number recipeListIndex)
 
 local queue
  
@@ -130,8 +131,12 @@ function DolgubonSetCrafter.setupLocalizedLabels()
 	DolgubonSetCrafterWindowLeftCraft:SetText				(langStrings.UIStrings.craftStart)
 	DolgubonSetCrafterWindowRightOutputRequirements:SetText (langStrings.UIStrings.chatRequirements)
 	DolgubonSetCrafterWindowRightMailRequirements:SetText	(langStrings.UIStrings.mailRequirements)
-	DolgubonSetCrafterWindowRightLabel:SetText 				(langStrings.UIStrings.materialScrollTitle)
-
+	DolgubonSetCrafterWindowRightLabel:SetText				(langStrings.UIStrings.materialScrollTitle)
+	DolgubonSetCrafterWindowLeftResetPatterns:SetText		(langStrings.UIStrings.resetPatterns)
+	DolgubonSetCrafterWindowRightOutputRequest:SetText		(langStrings.UIStrings.chatRequest)
+	DolgubonSetCrafterWindowRightMailQueue:SetText			(langStrings.UIStrings.mailRequest)
+	DolgubonSetCrafterWindowRightCost:SetText				(langStrings.UIStrings.totalCostTitle)
+	DolgubonSetCrafterWindowFavouritesTitle:SetText			(langStrings.UIStrings.FavouritesTitle)
 end
 
 
@@ -195,12 +200,8 @@ function DolgubonSetCrafter.setupBehaviourToggles()
 		"esoui/art/cadwell/checkboxicon_unchecked.dds", "esoui/art/cadwell/checkboxicon_checked.dds", false )
 
 	autoCraft:GetNamedChild("Label"):SetText(DolgubonSetCrafter.localizedStrings.UIStrings.autoCraft)
-	if GetCVar("language.2") == "fr" then
-		mimicStones:GetNamedChild("Label"):SetText("Utiliser Pierre Cameleon")
-	else
-		mimicStones:GetNamedChild("Label"):SetText(GetString(SI_CRAFTING_CONFIRM_USE_UNIVERSAL_STYLE_ITEM_TITLE))
-		
-	end
+	mimicStones:GetNamedChild("Label"):SetText(DolgubonSetCrafter.localizedStrings.UIStrings.mimicStones)
+
 	if DolgubonSetCrafter.savedvars.saveLastChoice then
 		autoCraft:setState(DolgubonSetCrafter.savedvars["autoCraft"])
 		DolgubonSetCrafter.toggleCraftButton( false)
@@ -248,12 +249,39 @@ function DolgubonSetCrafter.initializeFunctions.setupUI()
 	DolgubonSetCrafter.favouritesManager:RefreshData()
 	local includeFlags = { AUTO_COMPLETE_FLAG_ALL}
 	ZO_AutoComplete:New(DolgubonSetCrafterWindowRightInputBox, includeFlags, {}, AUTO_COMPLETION_ONLINE_OR_OFFLINE, 5)
+	if not DolgubonSetCrafter:GetSettings().initialFurniture then
+		DolgubonSetCrafterWindowFavourites:SetHidden(not DolgubonSetCrafter:GetSettings().showFavourites )
+	end
+	if DolgubonSetCrafter:GetSettings().initialFurniture then
+		DolgubonSetCrafter.toggleFurnitureUI(DolgubonSetCrafterWindowToggleFurniture)
+	end
 
 end
 
 
 ---------------------
 --- OTHER
+
+function DolgubonSetCrafter.isCurrentlyInFurniture()
+	return DolgubonSetCrafterWindowToggleFurniture.isCurrentUIFurniture
+end
+
+function DolgubonSetCrafter.toggleFurnitureUI(toggleButton)
+	toggleButton.isCurrentUIFurniture = not toggleButton.isCurrentUIFurniture
+	local newHidden = toggleButton.isCurrentUIFurniture
+	DolgubonSetCrafterWindowFavourites:SetHidden(newHidden)
+	DolgubonSetCrafterWindowPatternInput:SetHidden(newHidden)
+	DolgubonSetCrafterWindowComboboxes:SetHidden(newHidden)
+	DolgubonSetCrafterWindowInput:SetHidden(newHidden)
+	DolgubonSetCrafterWindowMultiplierInput:SetHidden(newHidden)
+	DolgubonSetCrafterWindowFurniture:SetHidden(not newHidden)
+	DolgubonSetCrafter:GetSettings().initialFurniture = toggleButton.isCurrentUIFurniture
+	if toggleButton.isCurrentUIFurniture then
+		out("Please select a recipe to craft")
+	else
+		out(DolgubonSetCrafter.localizedStrings.UIStrings.patternHeader)
+	end
+end
 
 function DolgubonSetCrafter.resetChoices()
 
@@ -281,7 +309,7 @@ end
 DolgubonSetCrafter.defaultWidth = 1150
 DolgubonSetCrafter.defaultHeight = 650
 local totalWindowWidth = DolgubonSetCrafter.defaultWidth
-local leftHalfWindowWidth = totalWindowWidth - 250
+local leftHalfWindowWidth = totalWindowWidth - DolgubonSetCrafter.localizedMatScrollWidth
 local function getDividerPosition(window, a)
 	local DIVIDER_RATIO = leftHalfWindowWidth/totalWindowWidth
 	local width = window:GetWidth()

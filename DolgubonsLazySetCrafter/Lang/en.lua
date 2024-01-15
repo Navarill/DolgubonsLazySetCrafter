@@ -34,6 +34,8 @@ DolgubonSetCrafter.localizedStrings.UIStrings.craftStart			= "Start Crafting"
 DolgubonSetCrafter.localizedStrings.UIStrings.materialScrollTitle	= "Material Requirements"
 DolgubonSetCrafter.localizedStrings.UIStrings.mailRequirements      = "Mail Requirements"
 DolgubonSetCrafter.localizedStrings.UIStrings.chatRequirements      = "Requirements to Chat"
+DolgubonSetCrafter.localizedStrings.UIStrings.chatRequest 			= "Request to Chat"
+DolgubonSetCrafter.localizedStrings.UIStrings.mailRequest 			= "Mail Request"
 DolgubonSetCrafter.localizedStrings.UIStrings.defaultUserId         = "Enter @UserId"
 DolgubonSetCrafter.localizedStrings.UIStrings.noSet                 = "No Set"
 DolgubonSetCrafter.localizedStrings.UIStrings.usesMimicStone        = "This item will be made using a Mimic Stone"
@@ -45,9 +47,12 @@ DolgubonSetCrafter.localizedStrings.UIStrings.enchantQuality        = "Enchantme
 DolgubonSetCrafter.localizedStrings.UIStrings.inProgressCrafting    = "This item is in progress. You can cancel it, but some items have already been created"
 DolgubonSetCrafter.localizedStrings.UIStrings.addSelectionFavourite = "Save Selections"
 DolgubonSetCrafter.localizedStrings.UIStrings.addQueueFavourite		= "Save Queue"
+DolgubonSetCrafter.localizedStrings.UIStrings.FavouritesTitle 		= "Favourites"
 DolgubonSetCrafter.localizedStrings.UIStrings.showFavourites 		= "Show Favourites"
 DolgubonSetCrafter.localizedStrings.UIStrings.loadQueueAsIs 		= "Load with saved level"
 DolgubonSetCrafter.localizedStrings.UIStrings.loadQueueCurrentLevel	= "Load with currently selected level"
+DolgubonSetCrafter.localizedStrings.UIStrings.resetPatterns			= "Reset Patterns"
+DolgubonSetCrafter.localizedStrings.UIStrings.totalCostTitle		= "Total Cost"
 
 DolgubonSetCrafter.localizedStrings.SettingsStrings = {}
 
@@ -66,6 +71,7 @@ DolgubonSetCrafter.localizedStrings.SettingsStrings.useCharacterSettings        
 DolgubonSetCrafter.localizedStrings.SettingsStrings.useCharacterSettingsTooltip  = "Use character specific settings on this character only"
 DolgubonSetCrafter.localizedStrings.SettingsStrings.showToggleButton              = "Always show toggle button"
 DolgubonSetCrafter.localizedStrings.SettingsStrings.showToggleButtonTooltip       = "Show the UI toggle button at all times"
+DolgubonSetCrafter.localizedMatScrollWidth 											= 250
 
 DolgubonSetCrafter.localizedStrings.weaponNames = 
 {
