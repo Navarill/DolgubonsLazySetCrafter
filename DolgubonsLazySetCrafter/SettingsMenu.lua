@@ -96,8 +96,8 @@ local options =
 
 function DolgubonSetCrafter.initializeFunctions.initializeSettingsMenu()
 
-	-- local LAM = LibStub:GetLibrary("LibAddonMenu-2.0")
-	local LAM = LibAddonMenu2
+	local LAM = LibAddonMenu2 or LibStub:GetLibrary("LibAddonMenu-2.0")
+
 	LAM:RegisterAddonPanel("DolgubonsSetCrafter", panel)
 	
 	LAM:RegisterOptionControls("DolgubonsSetCrafter", options)
