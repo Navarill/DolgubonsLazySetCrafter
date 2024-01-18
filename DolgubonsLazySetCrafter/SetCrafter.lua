@@ -40,7 +40,8 @@ DolgubonSetCrafter.default = {
 	{
 		['homeStation'] = false,
 		['priceSwitch'] = false,
-	}
+	},
+	["initialFurniture"] = false,
 }
 local newFeatureInfo =
 {
@@ -171,6 +172,7 @@ function DolgubonSetCrafter:Initialize()
 	DolgubonSetCrafter.initializeFunctions.initializeCrafting()
 	--if pcall(DolgubonSetCrafter.initializeFunctions.setupUI) then else d("Dolgubon's Lazy Set Crafter: UI not loaded") end
 	DolgubonSetCrafter.initializeFunctions.setupUI()
+	DolgubonSetCrafter.initializeFunctions.InitializeFurnitureUI()
 	
 	--DolgubonSetCrafter.initializeFeedbackWindow()
 	local buttonInfo = {0,25000,100000, "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7CZ3LW6E66NAU"}
@@ -208,7 +210,6 @@ function DolgubonSetCrafter:Initialize()
 		DolgubonSetCrafter.updateList()
 	end
 	DolgubonSetCrafter.initializeMailButtons()
-	DolgubonSetCrafterWindowFavourites:SetHidden(not DolgubonSetCrafter:GetSettings().showFavourites)
 
 	local updateString = ""
 	local showUpdate = false
