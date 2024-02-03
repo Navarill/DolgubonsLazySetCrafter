@@ -178,21 +178,6 @@ function DolgubonSetCrafter:Initialize()
 	DolgubonSetCrafter.initializeFunctions.setupUI()
 	DolgubonSetCrafter.initializeFunctions.InitializeFurnitureUI()
 	
-	--DolgubonSetCrafter.initializeFeedbackWindow()
-	local buttonInfo = {0,25000,100000, "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7CZ3LW6E66NAU"}
-	if GetWorldName() == "NA Megaserver" then
-		buttonInfo[#buttonInfo+1] = { function()JumpToSpecificHouse( "@Dolgubon", 36) end, "Visit Maze 1"}
-		buttonInfo[#buttonInfo+1] = { function()JumpToSpecificHouse( "@Dolgubon", 9) end, "Visit Maze 2"}
-		-- feedbackString = "If you found a bug, have a request or a suggestion, or simply wish to donate, send a mail. You can also check out my house, or donate through Paypal or on Patreon."
-	end
-
-	local LibFeedback = LibFeedback
-	local button, window = LibFeedback:initializeFeedbackWindow(DolgubonSetCrafter, "Dolgubon's Lazy Set Crafter",DolgubonSetCrafterWindow, "@Dolgubon", 
-		{TOPLEFT , DolgubonSetCrafterWindow , TOPLEFT , 10, 10}, 
-		buttonInfo, 
-		"If you found a bug, have a request or a suggestion, or wish to donate, you can send me a mail here.")
-	window:SetHidden(true)
-
 	local currentAPIVersionOfAddon = 101040
 
 	if GetAPIVersion() > currentAPIVersionOfAddon and GetWorldName()~="PTS" then 
