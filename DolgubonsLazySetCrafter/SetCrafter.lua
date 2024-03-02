@@ -126,7 +126,7 @@ local function welcomePlayerToHouse()
 end
 
 function DolgubonSetCrafter.portToCraftingHouse()
-	if GetWorldName()~="PTS" then
+	if GetWorldName()=="PTS" then
 		d("No houses on PTS, since it changes where the copy comes from")
 		return
 	end
