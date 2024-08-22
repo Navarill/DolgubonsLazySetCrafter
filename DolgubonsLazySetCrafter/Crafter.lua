@@ -661,7 +661,7 @@ local function addByItemLinkToQueue(itemLink)
 
 	local styleIndex = GetItemLinkItemStyle(itemLink)
 	requestTable["Style"] = findMatchingSelected(DolgubonSetCrafter.styleNames, styleIndex)
-	if requestTable["Style"] == nil then
+	if requestTable["Style"] == nil and requestTable["Station"] ~= CRAFTING_TYPE_JEWELRYCRAFTING  then
 		d("The item link is missing a style, and could not be added to the queue")
 		ZO_Alert(ERROR, SOUNDS.GENERAL_ALERT_ERROR ,"The item link is missing a style, and could not be added to the queue")
 		return
