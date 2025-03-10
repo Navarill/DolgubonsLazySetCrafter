@@ -74,9 +74,11 @@ function DolgubonSetCrafter.toggleFurnitureUI(toggleButton)
 	DolgubonSetCrafterWindowFurniture:SetHidden(not newHidden)
 	DolgubonSetCrafter:GetSettings().initialFurniture = toggleButton.isCurrentUIFurniture
 	if toggleButton.isCurrentUIFurniture then
-		out("Please select a recipe to craft")
+		out(DolgubonSetCrafter.localizedStrings.UIStrings.recipePrompt)
+		toggleButton:SetText(DolgubonSetCrafter.localizedStrings.UIStrings.furnitureCrafting)
 	else
 		out(DolgubonSetCrafter.localizedStrings.UIStrings.patternHeader)
+		toggleButton:SetText(DolgubonSetCrafter.localizedStrings.UIStrings.gearCrafting)
 	end
 end
 

@@ -76,3 +76,5 @@ DolgubonSetCrafter.localizedStrings.armourTypes =
 
 
 ZO_CreateStringId("SI_BINDING_NAME_SET_CRAFTER_OPEN", "Öffne/Schließe Set Crafter Fenster")
+
+
