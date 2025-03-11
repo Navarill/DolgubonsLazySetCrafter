@@ -166,7 +166,7 @@ function isStyleKnownForPattern(styleIndex, station, pattern)
 		[2] = {5, 5,3, 7, 8, 9, 12, 2, 5,3, 7, 8, 9, 12, 2},
 		[6] = {4, 13, 13, 13, 13, 11},
 	}
-	if IsSmithingStyleKnown(styleIndex) then return true end
+	if IsSmithingStyleKnown(styleIndex) or styleIndex == LLC_FREE_STYLE_CHOICE then return true end
 	if not achievements[styleIndex] then return false end
 	local _, isKnown = GetAchievementCriterion( achievements[styleIndex], map[station][pattern])
 	return isKnown == 1
@@ -263,14 +263,33 @@ local function getPatternIndex(patternButton,weight)
 	end
 end
 
+function DolgubonSetCrafter.getTotalVariableAmounts()
+	local total = 0
+	for k, v in pairs (LazyCrafter.styleTable) do
+		if v then
+			local link = GetItemStyleMaterialLink(k)
+			local bag, bank, craft = GetItemLinkStacks(link)
+			total = total + bag + bank + craft
+		end
+	end
+	return total
+end
+
 local function addRequirements(returnedTable, addAmounts)
 	DolgubonSetCrafter.materialList = DolgubonSetCrafter.materialList or {}
 	local parity = -1
 	if addAmounts then parity = 1 end
 	local requirements = LazyCrafter:getMatRequirements(returnedTable)
 	for itemId, amount in pairs(requirements) do
-		local link = getItemLinkFromItemId(itemId)
-		local bag, bank, craft = GetItemLinkStacks(link)
+		local link, currentAmount
+		if itemId == LLC_FREE_STYLE_CHOICE then
+			link = "Variable Style"
+			currentAmount = DolgubonSetCrafter.getTotalVariableAmounts()
+		else
+			link = getItemLinkFromItemId(itemId)
+			local bag, bank, craft = GetItemLinkStacks(link)
+			currentAmount = bag + bank + craft
+		end
 		if GetItemLinkCraftingSkillType(link) == CRAFTING_TYPE_ENCHANTING then
 			if returnedTable.type=="improvement" then
 				amount = 0
@@ -282,9 +301,9 @@ local function addRequirements(returnedTable, addAmounts)
 		end
 		if DolgubonSetCrafter.materialList[itemId] then
 			DolgubonSetCrafter.materialList[itemId]["Amount"] = DolgubonSetCrafter.materialList[itemId]["Amount"] + amount
-			DolgubonSetCrafter.materialList[itemId]["Current"] = bag + bank + craft
+			DolgubonSetCrafter.materialList[itemId]["Current"] = currentAmount
 		else
-			DolgubonSetCrafter.materialList[itemId] = {["Name"] = link ,["Amount"] = amount,["Current"] = bag + bank + craft }
+			DolgubonSetCrafter.materialList[itemId] = {["Name"] = link ,["Amount"] = amount,["Current"] = currentAmount }
 		end
 		if DolgubonSetCrafter.materialList[itemId]["Amount"] <= 0 then
 			DolgubonSetCrafter.materialList[itemId] = nil
@@ -382,6 +401,13 @@ local function addToQueue(requestTable, craftMultiplier )
 				requestTableCopy["Enchant"] = ""
 				requestTableCopy["EnchantQuality"] =1
 			end
+
+			-- if styleIndex == LLC_FREE_STYLE_CHOICE then
+			-- 	local styleName = GetItemStyleName(styleItemIndex)
+			-- 	local styleItem = GetSmithingStyleItemInfo(styleItemIndex)
+			-- 	table.insert(styles,{styleItemIndex,styleName, styleItem, GetItemStyleMaterialLink(styleItemIndex, 0 )})
+			-- end
+
 
 			--LLC_CraftSmithingItemByLevel(self, patternIndex, isCP , level, styleIndex, traitIndex, useUniversalStyleItem, stationOverride, setIndex, quality, autocraft)
 			if isCP then
@@ -712,7 +738,7 @@ local function InitializeItemLinkRightClick(link, button, a, b, linkType, ...)
 			end, MENU_ADD_OPTION_LABEL)
 			--Show the context menu entries at the itemlink handler now
 			ShowMenu()
-		end, 50)
+		end, 0)
 	end
 end
 
@@ -866,7 +892,7 @@ end
 function DolgubonSetCrafter.initializeFunctions.initializeCrafting()
 	queue = DolgubonSetCrafter.savedvars.queue
 
-	LazyCrafter = LibLazyCrafting:AddRequestingAddon(DolgubonSetCrafter.name, false, LLCCraftCompleteHandler)
+	LazyCrafter = LibLazyCrafting:AddRequestingAddon(DolgubonSetCrafter.name, false, LLCCraftCompleteHandler, nil, 	 {true,true,true,true,true,true,true,true,true,true,[34] = true})
 	DolgubonSetCrafter.LazyCrafter = LazyCrafter
 	for k, v in pairs(queue) do 
 		if not v.doNotKeep then

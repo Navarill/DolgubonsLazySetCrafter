@@ -71,6 +71,8 @@ for i = 1, #styles do
 	styles[i][2] = colour..styles[i][2].."|r"
 
 end
+table.insert(styles,1, {LLC_FREE_STYLE_CHOICE, "Most stones (Basic races)", "Variable", "Variable Item"})
+
 DolgubonSetCrafter.styleNames = styles
 
 ------------------------------------

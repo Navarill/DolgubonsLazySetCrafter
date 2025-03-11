@@ -157,8 +157,12 @@ local function updateCurrentAmounts()
 
 	for k, v in pairs(DolgubonSetCrafter.materialList) do
 		local link = v["Name"]
-		local bag, bank, craft = GetItemLinkStacks(link)
-		v["Current"] =  bag + bank + craft
+		if link ==  "Variable Style" then
+			v["Current"] = DolgubonSetCrafter.getTotalVariableAmounts()
+		else
+			local bag, bank, craft = GetItemLinkStacks(link)
+			v["Current"] =  bag + bank + craft
+		end
 	end 
 end
 

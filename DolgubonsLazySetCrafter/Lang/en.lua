@@ -54,6 +54,9 @@ DolgubonSetCrafter.localizedStrings.UIStrings.loadQueueCurrentLevel	= "Load with
 DolgubonSetCrafter.localizedStrings.UIStrings.resetPatterns			= "Reset Patterns"
 DolgubonSetCrafter.localizedStrings.UIStrings.totalCostTitle		= "Total Cost"
 DolgubonSetCrafter.localizedStrings.UIStrings.onlyKnownRecipes		= "Only Known Recipes"
+DolgubonSetCrafter.localizedStrings.UIStrings.furnitureCrafting		=  "Furniture Crafting"
+DolgubonSetCrafter.localizedStrings.UIStrings.gearCrafting			= "Gear Crafting"
+DolgubonSetCrafter.localizedStrings.UIStrings.recipePrompt			= "Please select a recipe to craft"
 
 DolgubonSetCrafter.localizedStrings.SettingsStrings = {}
 
@@ -92,6 +95,8 @@ DolgubonSetCrafter.localizedStrings.armourTypes =
 }
 ZO_CreateStringId("SI_BINDING_NAME_SET_CRAFTER_OPEN", "Open/close the Set Crafter")
 ZO_CreateStringId("SI_BINDING_NAME_SET_CRAFTER_ADD_MAIL_ITEM", "Add item links in mail to queue")
+
+
 
 
 
