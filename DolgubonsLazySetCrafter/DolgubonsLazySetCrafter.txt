@@ -10,13 +10,7 @@
 ## Version: 3.0.6
 ## SavedVariables: dolgubonslazysetcraftersavedvars
 ## DependsOn: LibLazyCrafting>=4018 LibAddonMenu-2.0
-## OptionalDependsOn: pChat LibFeedback LibCustomMenu LibPrice LibStub
-
-; Libraries
-
-; Feedback library
-Libs/LibFeedback/libs/LibStub.lua
-Libs/LibFeedback/feedback.lua
+## OptionalDependsOn: pChat LibFeedback LibCustomMenu LibPrice
 
 ; Localization files - Default (en) first
 Lang/en.lua
