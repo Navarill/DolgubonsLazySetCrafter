@@ -178,7 +178,7 @@ function DolgubonSetCrafter:Initialize()
 	DolgubonSetCrafter.initializeFunctions.setupUI()
 	DolgubonSetCrafter.initializeFunctions.InitializeFurnitureUI()
 	
-	--DolgubonSetCrafter.initializeFeedbackWindow()
+	--[[DolgubonSetCrafter.initializeFeedbackWindow()
 	local buttonInfo = {0,25000,100000, "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7CZ3LW6E66NAU"}
 	if GetWorldName() == "NA Megaserver" then
 		buttonInfo[#buttonInfo+1] = { function()JumpToSpecificHouse( "@Dolgubon", 36) end, "Visit Maze 1"}
@@ -192,7 +192,7 @@ function DolgubonSetCrafter:Initialize()
 		buttonInfo, 
 		"If you found a bug, have a request or a suggestion, or wish to donate, you can send me a mail here.")
 	window:SetHidden(true)
-
+]]
 	local currentAPIVersionOfAddon = 101046
 
 	if GetAPIVersion() > currentAPIVersionOfAddon and GetWorldName()~="PTS" then 
