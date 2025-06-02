@@ -186,7 +186,7 @@ function DolgubonSetCrafter:Initialize()
 		-- feedbackString = "If you found a bug, have a request or a suggestion, or simply wish to donate, send a mail. You can also check out my house, or donate through Paypal or on Patreon."
 	end
 
-	local LibFeedback = LibFeedback
+	local LibFeedback = LibFeedback or LibStub:GetLibrary("LibFeedback")
 	local button, window = LibFeedback:initializeFeedbackWindow(DolgubonSetCrafter, "Dolgubon's Lazy Set Crafter",DolgubonSetCrafterWindow, "@Dolgubon", 
 		{TOPLEFT , DolgubonSetCrafterWindow , TOPLEFT , 10, 10}, 
 		buttonInfo, 
