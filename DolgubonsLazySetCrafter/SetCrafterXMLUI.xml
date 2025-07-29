@@ -172,7 +172,7 @@ Created by Dolgubon (Joseph Heinzle)
 							</OnClicked>
 							<OnMouseEnter>
 								InitializeTooltip(InformationTooltip, self, TOP, 0, 0)
-								SetTooltipText(InformationTooltip,"Port to a publicly open crafting house")
+								SetTooltipText(InformationTooltip,DolgubonSetCrafter.localizedStrings.UIStrings.craftHousePort)
 							</OnMouseEnter>
 							<OnMouseExit>
 								ClearTooltip(InformationTooltip)
@@ -437,7 +437,7 @@ Created by Dolgubon (Joseph Heinzle)
 									<Controls>
 										<EditBox name="$(parent)Box" inherits="ZO_DefaultEditForBackdrop ZO_EditDefaultText" textType="TEXT_TYPE_ALL" text="" mouseEnabled="true">
 											<OnInitialized>
-												ZO_EditDefaultText_Initialize(self, "Search")
+												ZO_EditDefaultText_Initialize(self, DolgubonSetCrafter.localizedStrings.UIStrings.defaultSearchText)
 												--DolgubonSetCrafterWindowInputBox = self
 											</OnInitialized>
 											<OnTextChanged>

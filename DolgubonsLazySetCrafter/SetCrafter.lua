@@ -191,8 +191,8 @@ function DolgubonSetCrafter:Initialize()
 		{TOPLEFT , DolgubonSetCrafterWindow , TOPLEFT , 10, 10}, 
 		buttonInfo, 
 		"If you found a bug, have a request or a suggestion, or wish to donate, you can send me a mail here.")
-	window:SetHidden(true)
-]]
+	window:SetHidden(true) ]]
+
 	local currentAPIVersionOfAddon = 101046
 
 	if GetAPIVersion() > currentAPIVersionOfAddon and GetWorldName()~="PTS" then 

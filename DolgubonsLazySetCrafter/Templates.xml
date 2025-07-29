@@ -150,7 +150,7 @@
 			<OnMouseEnter>
 				if not CanItemLinkBeVirtual(self.data[1].Name) then
 					InitializeTooltip(InformationTooltip, self, TOP, 0, 0)
-					InformationTooltip:AddLine("The style stone from the basic racial styles for which you have the most # of will be used")
+					InformationTooltip:AddLine(DolgubonSetCrafter.localizedStrings.UIStrings.variableStoneInfoTip)
 					return
 				end
 				if not self.isKnown then
