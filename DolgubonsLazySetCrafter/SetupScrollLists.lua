@@ -90,19 +90,22 @@ local function addonChoicePrice(itemLink)
 	end
 end
 
+
+
 local function generateValidPriceSources()
+	local blurbs = DolgubonSetCrafter.localizedStrings.UIStrings.priceSourceBlurbs
 	local validPriceSources = 
 	{
-		{"Currently using Set Crafter's choice", true, addonChoicePrice},
-		{"Currently using prices from LibPrice", LibPrice, getLibPrice},
-		{'Currently using prices from MasterMerchant', MasterMerchant, getMMPrice},
-		{'Currently using prices from Arkadius Trade Tools', ArkadiusTradeTools and ArkadiusTradeTools.Modules and ArkadiusTradeTools.Modules.Sales and ArkadiusTradeTools.Modules.Sales.addMenuItems, getATTPrice},
-		{'Currently using prices from Tamriel Trade Center', TamrielTradeCentrePrice, getTTCPrice},
-		{"Currently using the game's default prices", true, GetItemLinkValue},
+		{blurbs[1], true, addonChoicePrice},
+		{blurbs[2], LibPrice, getLibPrice},
+		{blurbs[3], MasterMerchant, getMMPrice},
+		{blurbs[4], ArkadiusTradeTools and ArkadiusTradeTools.Modules and ArkadiusTradeTools.Modules.Sales and ArkadiusTradeTools.Modules.Sales.addMenuItems, getATTPrice},
+		{blurbs[5], TamrielTradeCentrePrice, getTTCPrice},
+		{blurbs[6], true, GetItemLinkValue},
 	}
 	for i = 2, #validPriceSources do
 		if validPriceSources[i][2] then
-			validPriceSources[1][1] = validPriceSources[i][1].." (Set Crafter's choice)"
+			validPriceSources[1][1] = validPriceSources[i][1]..blurbs.defaultBlurbIndicator
 			validPriceSources[1][4] = i
 			return validPriceSources
 		end
@@ -149,7 +152,8 @@ local function updateCost()
 		cost = cost + price * v["Amount"]
 	end 
 	cost = zo_strformat(SI_NUMBER_FORMAT, ZO_AbbreviateNumber(cost, NUMBER_ABBREVIATION_PRECISION_HUNDREDTHS, USE_LOWERCASE_NUMBER_SUFFIXES))
-	DolgubonSetCrafterWindowRightCost:SetText("Total Cost: "..cost.." |t20:20:esoui/art/currency/currency_gold_64.dds|t")
+
+	DolgubonSetCrafterWindowRightCost:SetText(zo_strformat(DolgubonSetCrafter.localizedStrings.UIStrings.totalCost, cost))
 end
 
 local function updateCurrentAmounts()
@@ -157,7 +161,7 @@ local function updateCurrentAmounts()
 
 	for k, v in pairs(DolgubonSetCrafter.materialList) do
 		local link = v["Name"]
-		if link ==  "Variable Style" then
+		if link ==  DolgubonSetCrafter.localizedStrings.UIStrings.variableStyleLink then
 			v["Current"] = DolgubonSetCrafter.getTotalVariableAmounts()
 		else
 			local bag, bank, craft = GetItemLinkStacks(link)
@@ -345,8 +349,9 @@ end
 
 
 function DolgubonSetCrafter.outputRequest()
-	if next(DolgubonSetCrafter.materialList) == nil then 
-		d("Dolgubon's Lazy Set Crafter: No items are in the queue! No mails sent")
+	if next(DolgubonSetCrafter.materialList) == nil then
+		
+		d(DolgubonSetCrafter.localizedStrings.UIStrings.noItemsQueuedMailError)
 		return 
 	end
 	local sets = {} -- A list of all items under the current set type.

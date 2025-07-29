@@ -247,7 +247,7 @@ local function addRequirements(returnedTable, addAmounts)
 	for itemId, amount in pairs(requirements) do
 		local link, currentAmount
 		if itemId == LLC_FREE_STYLE_CHOICE then
-			link = "Variable Style"
+			link = DolgubonSetCrafter.localizedStrings.UIStrings.variableStyleLink
 			currentAmount = DolgubonSetCrafter.getTotalVariableAmounts()
 		else
 			link = getItemLinkFromItemId(itemId)
@@ -656,8 +656,9 @@ local function addByItemLinkToQueue(itemLink)
 	local styleIndex = GetItemLinkItemStyle(itemLink)
 	requestTable["Style"] = findMatchingSelected(DolgubonSetCrafter.styleNames, styleIndex)
 	if requestTable["Style"] == nil and requestTable["Station"] ~= CRAFTING_TYPE_JEWELRYCRAFTING  then
-		d("The item link is missing a style, and could not be added to the queue")
-		ZO_Alert(UI_ALERT_CATEGORY_ERROR, SOUNDS.GENERAL_ALERT_ERROR ,"The item link is missing a style, and could not be added to the queue")
+
+		d(DolgubonSetCrafter.localizedStrings.UIStrings.linkMissingStyleError)
+		ZO_Alert(UI_ALERT_CATEGORY_ERROR, SOUNDS.GENERAL_ALERT_ERROR ,DolgubonSetCrafter.localizedStrings.UIStrings.linkMissingStyleError)
 		return
 	end
 
@@ -753,7 +754,7 @@ function DolgubonSetCrafter.addFurniture()
 		requestTableCopy.typeId = 2
 		queue[#queue+1] = requestTableCopy
 	else
-		out("No item to craft was selected!")
+		out(DolgubonSetCrafter.localizedStrings.UIStrings.noItemSelected)
 	end
 end
 
