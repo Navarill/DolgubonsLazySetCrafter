@@ -2,7 +2,7 @@ DolgubonSetCrafter = DolgubonSetCrafter or {}
 
 DolgubonSetCrafter.lang = "ru"
 
-DolgubonSetCrafter.localizedStrings = {}
+DolgubonSetCrafter.localizedStrings = DolgubonSetCrafter.localizedStrings or {}
 
 DolgubonSetCrafter.localizedStrings.UIStrings = {}
 DolgubonSetCrafter.localizedStrings.UIStrings.patternHeader			= "Выберите части брони/оружия"
@@ -57,6 +57,31 @@ DolgubonSetCrafter.localizedStrings.UIStrings.onlyKnownRecipes		= "Только 
 DolgubonSetCrafter.localizedStrings.UIStrings.furnitureCrafting		= "Создать снаряжение"
 DolgubonSetCrafter.localizedStrings.UIStrings.gearCrafting			= "Создать мебель"
 DolgubonSetCrafter.localizedStrings.UIStrings.recipePrompt			= "Выберите рецепт для создания"
+DolgubonSetCrafter.localizedStrings.UIStrings.craftHousePort 				= "Телепортироваться в общедоступный Крафтхолл"
+DolgubonSetCrafter.localizedStrings.UIStrings.craftHousePortButton			= "Крафт холл"
+DolgubonSetCrafter.localizedStrings.UIStrings.defaultSearchText				= "Search"
+DolgubonSetCrafter.localizedStrings.UIStrings.drinks						= "Напитки"
+DolgubonSetCrafter.localizedStrings.UIStrings.food							= "Еда"
+DolgubonSetCrafter.localizedStrings.UIStrings.furniture 					= "Мебель"
+DolgubonSetCrafter.localizedStrings.UIStrings.linkMissingStyleError			= "У предмета не задан стиль, его нельзя добавить в очередь"
+DolgubonSetCrafter.localizedStrings.UIStrings.noEnchantment					= "Без глифа"
+DolgubonSetCrafter.localizedStrings.UIStrings.noItemSelected				= "Не выбран предмет для создания!"
+DolgubonSetCrafter.localizedStrings.UIStrings.noItemsQueuedMailError		= "Dolgubon's Lazy Set Crafter: Нет предметов в очереди — отправка писем отменена"
+DolgubonSetCrafter.localizedStrings.UIStrings.priceSourceBlurbs = {
+    "Сейчас используется выбор Set Crafter's",
+    "Сейчас используются цены из LibPrice",
+    "Сейчас используются цены из MasterMerchant",
+    "Сейчас используются цены из Arkadius Trade Tools",
+    "Сейчас используются цены из Tamriel Trade Center",
+    "Сейчас используются стандартные игровые цены",
+    defaultBlurbIndicator = " (рекомендуется модом)",
+}
+DolgubonSetCrafter.localizedStrings.UIStrings.selectedFurniture 			= "Выбран(ы): <<1>>"
+DolgubonSetCrafter.localizedStrings.UIStrings.totalCost 					= "Общая цена: <<1>> |t20:20:esoui/art/currency/currency_gold_64.dds|t"
+DolgubonSetCrafter.localizedStrings.UIStrings.variableStoneInfoTip 			= "Будет использован камень стиля из базовых расовых стилей, которых у вас больше всего"
+DolgubonSetCrafter.localizedStrings.UIStrings.variableStyleLink				= "Автовыбираемый стиль"
+DolgubonSetCrafter.localizedStrings.UIStrings.variableStyleSelection		= "Автовыбор (Больше Всего Камней Стиля)"
+
 
 DolgubonSetCrafter.localizedStrings.SettingsStrings = {}
 
@@ -96,6 +121,47 @@ DolgubonSetCrafter.localizedStrings.armourTypes =
 ZO_CreateStringId("SI_BINDING_NAME_SET_CRAFTER_OPEN", "Открыть/закрыть окно Set Crafter")
 ZO_CreateStringId("SI_BINDING_NAME_SET_CRAFTER_ADD_MAIL_ITEM", "Add item links in mail to queue")
 
+
+DolgubonSetCrafter.localizedStrings.UIStrings.enchantmentNames = {
+  ["Absorb Health"] = "Глиф поглощения здоровья",
+  ["Absorb Magicka"] = "Глиф поглощения магии",
+  ["Absorb Stamina"] = "Глиф поглощения запаса сил",
+  ["Bashing"] = "Глиф Сокрушения",
+  ["Crushing"] = "Глиф Пробивания",
+  ["Decrease Health"] = "Глиф Уменьшения Здоровья",
+  ["Decrease Physical Harm"] = "Глиф Снижения Физ.Урона",
+  ["Decrease Spell Harm"] = "Глиф Снижения Маг.Урона",
+  ["Disease Resist"] = "Глиф сопротивления болезням",
+  ["Flame"] = "Глиф пламени",
+  ["Flame Resist"] = "Глиф сопротивления огню",
+  ["Foulness"] = "Глиф Скверны",
+  ["Frost"] = "Глиф Холода",
+  ["Frost Resist"] = "Глиф сопротивления холоду",
+  ["Hardening"] = "Глиф Закалки",
+  ["Health"] = "Глиф здоровья",
+  ["Health Recovery"] = "Глиф восстановления здоровья",
+  ["Increase Magical Harm"] = "Глиф Увеличения Маг.Урона",
+  ["Increase Physical Harm"] = "Глиф Увеличения Физ.Урона",
+  ["Magicka"] = "Глиф магии",
+  ["Magicka Recovery"] = "Глиф восстановления магии",
+  ["Poison"] = "Глиф яда",
+  ["Poison Resist"] = "Глиф сопротивления яду",
+  ["Potion Boost"] = "Глиф усиления зелий",
+  ["Potion Speed"] = "Глиф ускорения зелий",
+  ["Prismatic Defense"] = "Глиф Призматической Обороны",
+  ["Prismatic Onslaught"] = "Глиф Призматического Натиска",
+  ["Prismatic Recovery"] = "Глиф призматического восстановления",
+  ["Reduce Feat Cost"] = "Глиф Удешевления Способностей",
+  ["Reduce Skill Cost"] = "Глиф Призматического Удешевления",
+  ["Reduce Spell Cost"] = "Глиф Удешевления Заклинаний",
+  ["Shielding"] = "Глиф Охраны",
+  ["Shock"] = "Глиф Электричества",
+  ["Shock Resist"] = "Глиф Сопротивления Электричеству",
+  ["Stamina"] = "Глиф запаса сил",
+  ["Stamina Recovery"] = "Глиф восстановления запаса сил",
+  ["Weakening"] = "Глиф Слабости",
+  ["Weapon Damage"] = "Глиф Силы Оружия",
+}
 
 
 
@@ -147,3 +213,7 @@ And it's resizeable because
 
 
 --/Script BeginGroupElection(0, "Press F to start... well... something" ,nil)
+
+
+
+
