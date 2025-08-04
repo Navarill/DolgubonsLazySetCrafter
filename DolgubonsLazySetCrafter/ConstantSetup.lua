@@ -151,7 +151,22 @@ DolgubonSetCrafter.weaponEnchantments = {{0, DolgubonSetCrafter.localizedStrings
 DolgubonSetCrafter.jewelryEnchantments = {{0, DolgubonSetCrafter.localizedStrings.UIStrings.noEnchantment}}
 DolgubonSetCrafter.armourEnchantments  = {{0, DolgubonSetCrafter.localizedStrings.UIStrings.noEnchantment}}
 
+local localizedEnchantNames = DolgubonSetCrafter.localizedStrings.UIStrings.enchantmentNames
+
 local function addGlyphInfo(enchantId, glyphResultId, enchantName, typeOfEnchant)
+	if localizedEnchantNames then
+		enchantName = localizedEnchantNames[enchantName] or enchantName
+	end
+	
+	if GetCVar("language.2") ~= "en" then -- Doesn't seem to work, but will try  again later
+		-- _, enchantName = GetItemLinkEnchantInfo(ZO_LinkHandler_CreateLink("Test Trash", nil, ITEM_LINK_TYPE,156083, 309, 50, glyphResultId, 133, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 10000, 0))
+		-- if DolgubonSetCrafter.localizedStrings.UIStrings.internalEnchantment then
+		-- 	for i = 1, # DolgubonSetCrafter.localizedStrings.UIStrings.internalEnchantment do
+		-- 		-- enchantName = string.gsub(enchantName, DolgubonSetCrafter.localizedStrings.UIStrings.internalEnchantment[i] , "")
+		-- 	end
+		-- end
+
+	end
 	local tableToAddTo 
 	if ITEMTYPE_GLYPH_WEAPON == typeOfEnchant then
 		tableToAddTo = DolgubonSetCrafter.weaponEnchantments
